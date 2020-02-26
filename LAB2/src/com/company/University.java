@@ -6,7 +6,10 @@ public class University {
     private ArrayList<Student> students = new ArrayList<Student>();
     private ArrayList<Exercise> exercises = new ArrayList<Exercise>();
 
-    public University(){;}
+    public University(){
+        teachers.add(new Teacher("Anna","Maximovna"));
+        teachers.add(new Teacher("Milisa","Wood"));
+    }
     public University(Teacher teacher,Student student,Exercise exercise){
         teachers.add(teacher);
     }
@@ -38,5 +41,7 @@ public class University {
     public void setTeachers(Teacher teacher){
         this.teachers.add(teacher);
     }
+
+    public ArrayList<Teacher> getTeachers(){return this.teachers;}
 
 }

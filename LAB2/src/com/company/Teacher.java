@@ -32,4 +32,6 @@ public class Teacher {
     public String getInfo(){
         return this.name + " " + this.surname;
     }
+    public String getName() { return this.name; }
+    public String getSurname() { return  this.surname; }
 }
