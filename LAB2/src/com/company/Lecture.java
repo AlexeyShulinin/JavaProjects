@@ -5,13 +5,13 @@ public class Lecture extends Exercise{
 
     public Lecture(){;}
 
-    public Lecture(String topic,String date){
+    public Lecture(String date,String topic){
 
         this.topic = topic;
         this.date = date;
     }
 
-    public void setLecture (String newTopic,String newData){
+    public void setLecture (String newData,String newTopic){
         this.date = newData;
         this.topic = newTopic;
     }

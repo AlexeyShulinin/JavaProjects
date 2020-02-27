@@ -9,9 +9,9 @@ public class University {
     public University(){
         teachers.add(new Teacher("Anna","Maximovna"));
         teachers.add(new Teacher("Milisa","Wood"));
-        exercises.add(new Lecture("SPOVM","27.02.2020"));
-        exercises.add(new Lecture("KPP","02.03.2020"));
-        exercises.add(new Lecture("APK","27.03.2020"));
+        exercises.add(new Lecture("27.02.2020","SPOVM"));
+        exercises.add(new Lecture("02.03.2020","KPP"));
+        exercises.add(new Lecture("27.03.2020","APK"));
     }
     public University(Teacher teacher,Student student,Exercise exercise){
         teachers.add(teacher);
