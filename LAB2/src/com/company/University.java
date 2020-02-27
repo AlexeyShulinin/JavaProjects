@@ -4,11 +4,14 @@ import java.util.ArrayList;
 public class University {
     private ArrayList<Teacher> teachers = new ArrayList<Teacher>();
     private ArrayList<Student> students = new ArrayList<Student>();
-    private ArrayList<Exercise> exercises = new ArrayList<Exercise>();
+    private ArrayList<Lecture> exercises = new ArrayList<Lecture>();
 
     public University(){
         teachers.add(new Teacher("Anna","Maximovna"));
         teachers.add(new Teacher("Milisa","Wood"));
+        exercises.add(new Lecture("SPOVM","27.02.2020"));
+        exercises.add(new Lecture("KPP","02.03.2020"));
+        exercises.add(new Lecture("APK","27.03.2020"));
     }
     public University(Teacher teacher,Student student,Exercise exercise){
         teachers.add(teacher);
@@ -22,7 +25,7 @@ public class University {
         this.teachers.add(newTeacher);
     }
 
-    public void makePlanLectures(Exercise newExercise){
+    public void makePlanLectures(Lecture newExercise){
         this.exercises.add(newExercise);
     }
 
@@ -34,9 +37,11 @@ public class University {
         return students.get(pos);
     }
 
-    public ArrayList<Exercise> getExercises(){
+    public ArrayList<Lecture> getLecture(){
         return this.exercises;
     }
+
+    public void setLecture(Lecture lecture){ this.exercises.add(lecture);}
 
     public void setTeachers(Teacher teacher){
         this.teachers.add(teacher);

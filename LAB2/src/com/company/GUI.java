@@ -10,6 +10,7 @@ public class GUI extends JFrame{
     private JButton buttonTeacher = new JButton("Меню преподователя");
     private JButton buttonLecture = new JButton("Меню лекций");
     private JButton buttonHeadman = new JButton("Меню старосты");
+    private University university = new University();
 
 
 
@@ -55,7 +56,7 @@ public class GUI extends JFrame{
 
     class ButtonUniversityEvent implements ActionListener{
         public void actionPerformed (ActionEvent e){
-            UniversityGUI universityGUI = new UniversityGUI();
+            UniversityGUI universityGUI = new UniversityGUI(university);
             universityGUI.setVisible(true);
         }
     }

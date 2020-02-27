@@ -1,8 +1,8 @@
 package com.company;
 
-public class Exercise extends Lecture {
+public class Exercise {
 
-    private String date = new String();
+    public String date = new String();
 
     public Exercise(){
         this.date = "15.02.2020";
