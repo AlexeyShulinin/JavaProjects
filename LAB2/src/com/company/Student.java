@@ -6,15 +6,13 @@ public class Student {
 
     private String name = new String();
     private String surname = new String();
-    private String group = new String();
-    private ArrayList<String> marks = new ArrayList<String>();
+    private String marks = new String();
 
     public Student(){;}
-    public Student(String name,String surname,String group,String mark){
+    public Student(String name,String surname,String mark){
         this.name = name;
         this.surname = surname;
-        this.group = group;
-        this.marks.add(mark);
+        this.marks = mark;
     }
 
     public String getName(){
@@ -25,11 +23,8 @@ public class Student {
         return  this.surname;
     }
 
-    public String getGroup(){
-        return this.group;
-    }
 
-    public ArrayList<String> getMarks(){
+    public String getMarks(){
         return this.marks;
     }
 
@@ -41,16 +36,17 @@ public class Student {
         this.surname = surname;
     }
 
-    public void setGroup(String group){
-        this.group = group;
-    }
-
     public void setMarks(String mark){
-        this.marks.add(mark);
+        this.marks += "|" + mark;
     }
 
     public int visitLecture(Lecture lecture){
         return 0;
+    }
+
+    public void setStudent(Student student) {
+        this.name = student.name;
+        this.surname = student.surname;
     }
 }
 

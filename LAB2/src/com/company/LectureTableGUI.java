@@ -13,7 +13,7 @@ public class LectureTableGUI extends JFrame{
         this.setBounds(650, 250, 425, 175);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
-        Object[] col = new String[]{"Name","Surname"};
+        Object[] col = new String[]{"Date","Topic"};
         DefaultTableModel tableModel = new DefaultTableModel(0,2);
         JTable table = new JTable(tableModel);
 

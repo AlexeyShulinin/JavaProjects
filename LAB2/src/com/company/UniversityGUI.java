@@ -29,6 +29,7 @@ public class UniversityGUI extends JFrame {
 
         buttonAddTeacher.addActionListener(new ButtonAddTeacherEvent());
         buttonPlan.addActionListener(new ButtonPlanEvent());
+        buttonAddStudent.addActionListener(new ButtonAddStudentEvent());
     }
 
     class ButtonPlanEvent implements ActionListener {
@@ -40,6 +41,12 @@ public class UniversityGUI extends JFrame {
     class ButtonAddTeacherEvent implements ActionListener{
         public void actionPerformed (ActionEvent e){
             new AddTeacherGUI();
+        }
+    }
+
+    class ButtonAddStudentEvent implements  ActionListener{
+        public void actionPerformed (ActionEvent e) {
+            new AddStudentGUI();
         }
     }
 
@@ -68,6 +75,20 @@ public class UniversityGUI extends JFrame {
                     "addNewTeacher",
                     university);
             addTeacherGUI.setVisible(true);
+        }
+    }
+
+    public class AddStudentGUI {
+        public AddStudentGUI() {
+            TemplateAddGUI addStudentGUI = new TemplateAddGUI(
+                    "Add new student ",
+                    "Добавить студента",
+                    "Показать список студентов",
+                    "Имя",
+                    "Фамилия",
+                    "addNewStudent",
+                    university);
+            addStudentGUI.setVisible(true);
         }
     }
 }

@@ -37,7 +37,7 @@ public class GUI extends JFrame{
 
     class ButtonStudentEvent implements ActionListener{
         public void actionPerformed (ActionEvent e){
-            StudentGUI studentGUI = new StudentGUI();
+            StudentGUI studentGUI = new StudentGUI(university);
             studentGUI.setVisible(true);
         }
     }
@@ -50,7 +50,8 @@ public class GUI extends JFrame{
 
     class ButtonTeacherEvent implements ActionListener{
         public void actionPerformed (ActionEvent e){
-
+            TeacherGUI teacherGUI = new TeacherGUI(university);
+            teacherGUI.setVisible(true);
         }
     }
 
@@ -63,7 +64,8 @@ public class GUI extends JFrame{
 
     class ButtonHeadmanEvent implements ActionListener{
         public void actionPerformed (ActionEvent e){
-
+            HeadmanGUI headmanGUI = new HeadmanGUI(university);
+            headmanGUI.setVisible(true);
         }
     }
 }

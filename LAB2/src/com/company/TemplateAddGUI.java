@@ -51,7 +51,8 @@ public class TemplateAddGUI extends JFrame {
                 university.setTeachers(new Teacher(getInput1.getText(),getInput2.getText()));
             else if (action == "addNewLecture")
                 university.setLecture(new Lecture(getInput1.getText(),getInput2.getText()));
-
+            else if (action == "addNewStudent")
+                university.setStudents(new Student(getInput1.getText(),getInput2.getText(),"0"));
         }
     }
 
@@ -63,6 +64,10 @@ public class TemplateAddGUI extends JFrame {
             }
             else if(action == "addNewLecture"){
                 LectureTableGUI app = new LectureTableGUI(university);
+                app.setVisible(true);
+            }
+            else if (action == "addNewStudent"){
+                StudentTableGUI app = new StudentTableGUI(university);
                 app.setVisible(true);
             }
         }
