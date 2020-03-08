@@ -22,5 +22,6 @@ public class Lecture extends Exercise{
     public String getDate () {
         return this.date;
     }
+    public String retKnowledge () { return "Вернуть знания"; }
 
 }

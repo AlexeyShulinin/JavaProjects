@@ -48,6 +48,8 @@ public class Student {
         this.name = student.name;
         this.surname = student.surname;
     }
+
+    public String retThanks(){ return "Thank u";}
 }
 
 

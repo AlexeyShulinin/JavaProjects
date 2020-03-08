@@ -26,7 +26,6 @@ public class UniversityGUI extends JFrame {
         containerUniversity.add(buttonPlan);
         containerUniversity.add(buttonAddTeacher);
         containerUniversity.add(buttonAddStudent);
-
         buttonAddTeacher.addActionListener(new ButtonAddTeacherEvent());
         buttonPlan.addActionListener(new ButtonPlanEvent());
         buttonAddStudent.addActionListener(new ButtonAddStudentEvent());

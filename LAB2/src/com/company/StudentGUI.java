@@ -43,7 +43,8 @@ public class StudentGUI extends JFrame {
 
     class ButtonShowLecturesEvent implements ActionListener {
         public void actionPerformed (ActionEvent e){
-            labelIndicator.setText("Ура! вы посетили :" + comboBox.getSelectedItem());
+            labelIndicator.setText(university.getLecture().get(comboBox.getComponentCount()).retKnowledge() + " " +
+                                    comboBox.getSelectedItem());
         }
     }
 }

@@ -42,6 +42,8 @@ public class HeadmanGUI extends StudentGUI {
     class ButtonCheckStudents implements ActionListener {
         public void actionPerformed (ActionEvent e){
             addStudents(university.getStudents(),comboBox);
+            for(int i = 0; i < university.getStudents().size();i++)
+                university.getStudents().get(i).retThanks();
         }
     }
 

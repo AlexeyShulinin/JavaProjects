@@ -8,7 +8,6 @@ public class GUI extends JFrame{
     private JButton buttonUniversity = new JButton("Меню Университета");
     private JButton buttonStudent = new JButton("Меню студента");
     private JButton buttonTeacher = new JButton("Меню преподователя");
-    private JButton buttonLecture = new JButton("Меню лекций");
     private JButton buttonHeadman = new JButton("Меню старосты");
     private University university = new University();
 
@@ -21,15 +20,13 @@ public class GUI extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Container container = this.getContentPane();//содержит все поля
-        container.setLayout(new GridLayout(5,0,5,5));
+        container.setLayout(new GridLayout(4,0,5,5));
         container.add(buttonUniversity);
-        container.add(buttonLecture);
         container.add(buttonTeacher);
         container.add(buttonStudent);
         container.add(buttonHeadman);
 
         buttonStudent.addActionListener(new ButtonStudentEvent());
-        buttonLecture.addActionListener(new ButtonLectureEvent());
         buttonTeacher.addActionListener(new ButtonTeacherEvent());
         buttonUniversity.addActionListener(new ButtonUniversityEvent());
         buttonHeadman.addActionListener(new ButtonHeadmanEvent());
@@ -39,12 +36,6 @@ public class GUI extends JFrame{
         public void actionPerformed (ActionEvent e){
             StudentGUI studentGUI = new StudentGUI(university);
             studentGUI.setVisible(true);
-        }
-    }
-
-    class ButtonLectureEvent implements ActionListener{
-        public void actionPerformed (ActionEvent e){
-
         }
     }
 
