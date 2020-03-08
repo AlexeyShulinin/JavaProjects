@@ -16,7 +16,7 @@ public class TeacherGUI extends JFrame {
     private JLabel labelIndicatorStudents = new JLabel("Сравнение студентов");
     private JLabel labelIndicator = new JLabel("Вы пока не провели лекцию");
     private ArrayList<Lecture> listExercise = new ArrayList<Lecture>();
-    private ArrayList<Student> listOfStudent;
+    private Journal journal;
     private University university;
     private JComboBox<String> comboBoxLectures = new JComboBox<String>();
     private JComboBox<String> comboBoxStudents = new JComboBox<String>();
@@ -27,6 +27,7 @@ public class TeacherGUI extends JFrame {
         this.setBounds(650, 250, 475, 175);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         this.university = university;
+        this.journal = university.getJournal();
         this.listExercise = university.getLecture();
 
         StudentGUI.addLectures(this.listExercise,this.comboBoxLectures);
@@ -58,8 +59,9 @@ public class TeacherGUI extends JFrame {
 
     class ButtonShowStudentsEvent implements ActionListener {
         public void actionPerformed (ActionEvent e){
-            listOfStudent = listExercise.get(comboBoxLectures.getSelectedIndex()).getPresentStudents();
+            ArrayList<Student> listOfStudent = listExercise.get(comboBoxLectures.getSelectedIndex()).getPresentStudents();
             HeadmanGUI.addStudents(listOfStudent,comboBoxStudents);
+            journal.setCheckedStudents(listOfStudent);
         }
     }
 
@@ -76,9 +78,16 @@ public class TeacherGUI extends JFrame {
     }
 
     class ButtonCMPStudents implements ActionListener {
-        public void actionPerformed (ActionEvent e){
-            if (university.getJournal().cmpPresentedStudents(listOfStudent) == true)
-                labelIndicatorStudents.setText("Всё в норме");
+        public void actionPerformed (ActionEvent e) {
+            if (university.getStudents().size() != 0 && journal.getListOfStudents().size() != 0) {
+                if (university.getJournal().cmpPresentedStudents(journal.getListOfStudents()) == true) {
+                    labelIndicatorStudents.setText("Всё в норме");
+                    university.getHeadman().setResultOfCMP(true);
+                } else {
+                    labelIndicatorStudents.setText("Списки не равны");
+                    university.getHeadman().setResultOfCMP(false);
+                }
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Headman extends  Student {
     private Student headman = new Student();
+    public boolean resultOfCMP = true;
     ArrayList<Student> checkedStudent = new ArrayList<Student>();
 
     public Headman(){
@@ -24,5 +25,13 @@ public class Headman extends  Student {
         journal.checkStudent(students);
     }
 
+    public void setResultOfCMP(boolean bool){
+        if (bool == true) this.resultOfCMP = true;
+        else this.resultOfCMP = false;
+    }
+
+    public void addNotPresentedStudent(){
+
+    }
 
 }

@@ -1,6 +1,7 @@
 package com.company;
 
 import javax.swing.*;
+import javax.swing.plaf.ComboBoxUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,6 +20,10 @@ public class StudentGUI extends JFrame {
                 comboBox.addItem(lecture.get(i).getTopic() + " " + lecture.get(i).getDate());
             }
 
+    }
+
+    public JComboBox<String> getCombobox(){
+        return this.comboBox;
     }
 
     public StudentGUI(){}
@@ -50,4 +55,6 @@ public class StudentGUI extends JFrame {
                 university.getLecture().get(comboBox.getSelectedIndex()).addPresentStudent(university.getStudents().get(i));
         }
     }
+
+
 }

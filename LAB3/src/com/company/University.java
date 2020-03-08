@@ -23,7 +23,7 @@ public class University {
     }
 
     public void enrollStudent(Student newStudent){
-        this.students.add(newStudent);
+        this.students.add(new Student(newStudent.getName(),newStudent.getSurname(),"0"));
     }
 
     public void hireTeacher(Teacher newTeacher){

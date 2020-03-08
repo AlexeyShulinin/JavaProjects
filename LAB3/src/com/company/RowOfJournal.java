@@ -17,7 +17,8 @@ public class RowOfJournal {
         this.presence.add(nameOfStudent + "-");
     }
 
-
-
+    public ArrayList<String> retList(){
+        return this.presence;
+    }
 
 }

@@ -6,6 +6,7 @@ public class Student extends AbstractStudent {
     private String marks = new String();
 
     public Student(){;}
+
     public Student(String newName,String newSurname,String mark){
         super(newName,newSurname);
         this.marks = mark;

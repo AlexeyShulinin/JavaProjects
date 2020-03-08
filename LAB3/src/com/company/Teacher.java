@@ -17,11 +17,13 @@ public class Teacher {
         return 0;
     }
 
-    public void checkStudent(University allStudents,Student student){
+    public void checkStudent(University allStudents,Student student,Journal journal){
         for(int i = 0; i < allStudents.getCountOfStudents();i++){
-            if(student.getName() == allStudents.getStudent(i).getName() && student.getSurname() == allStudents.getStudent(i).getSurname())
+            if(student.getName() == allStudents.getStudent(i).getName() && student.getSurname() == allStudents.getStudent(i).getSurname()) {
                 checkedStudent.add(student);
+            }
         }
+        journal.getRow().addPresent(checkedStudent);
     }
 
     public void setInfo(String name,String surname){
