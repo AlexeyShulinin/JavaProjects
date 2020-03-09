@@ -6,7 +6,7 @@ public class Teacher {
     private String name = new String();
     private String surname = new String();
 
-    ArrayList<Student> checkedStudent = new ArrayList<Student>();
+    ArrayList<AbstractStudent> checkedStudent = new ArrayList<AbstractStudent>();
 
     public Teacher(String name,String surname){
         this.name = name;
@@ -37,7 +37,7 @@ public class Teacher {
     public String getName() { return this.name; }
     public String getSurname() { return  this.surname; }
 
-    public ArrayList<Student> getListOfStudents(Journal journal){
+    public ArrayList<AbstractStudent> getListOfStudents(Journal journal){
         return journal.getListOfStudents();
     }
 }

@@ -6,7 +6,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class LectureTableGUI extends JFrame{
-    private ArrayList<Lecture> listExercise = new ArrayList<Lecture>();
+    private ArrayList<AbstractExercise> listExercise = new ArrayList<AbstractExercise>();
 
     public LectureTableGUI(University university){
         super("Table of exercises");//в класс JFrame передаём название нашего окна

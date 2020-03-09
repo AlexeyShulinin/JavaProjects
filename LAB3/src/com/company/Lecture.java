@@ -3,8 +3,7 @@ package com.company;
 import java.util.ArrayList;
 
 public class Lecture extends AbstractExercise{
-    private String topic = new String();
-    private ArrayList<Student> presentStudents = new ArrayList<Student>();
+    private ArrayList<AbstractStudent> presentStudents = new ArrayList<AbstractStudent>();
 
     public Lecture(){;}
 
@@ -22,13 +21,21 @@ public class Lecture extends AbstractExercise{
         return this.topic;
     }
     public String retKnowledge () { return "Вернуть знания"; }
-    public String addPresentStudent(Student student){
+    public String addPresentStudent(AbstractStudent student){
         presentStudents.add(student);
         return retKnowledge();
     }
 
-    public ArrayList<Student> getPresentStudents(){
+    public ArrayList<AbstractStudent> getPresentStudents(){
         return presentStudents;
+    }
+
+    public String getDate(){
+        return this.date;
+    }
+
+    public void setDate(String date){
+        this.date = date;
     }
 
 }

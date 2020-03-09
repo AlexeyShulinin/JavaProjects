@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 public class Journal {
     private RowOfJournal row = new RowOfJournal();
-    private ArrayList<Student> checkedStudents;
-    private ArrayList<Student > allStudent;
+    private ArrayList<AbstractStudent> checkedStudents;
+    private ArrayList<AbstractStudent > allStudent;
 
-    public Journal(ArrayList<Student> students){
+    public Journal(ArrayList<AbstractStudent> students){
         this.allStudent = students;
     }
 
-    public void checkStudent(ArrayList<Student> students){
+    public void checkStudent(ArrayList<AbstractStudent> students){
         row.addPresent(students);
     }
 
@@ -19,11 +19,11 @@ public class Journal {
         row.notPresent(student.getSurname());
     }
 
-    public ArrayList<Student> getListOfStudents(){
+    public ArrayList<AbstractStudent> getListOfStudents(){
         return this.checkedStudents;
     }
 
-    public boolean cmpPresentedStudents(ArrayList<Student> checkedStudents){
+    public boolean cmpPresentedStudents(ArrayList<AbstractStudent> checkedStudents){
         int amount=0;
         this.checkedStudents = checkedStudents;
         for(int i = 0; i<allStudent.size();i++)
@@ -35,7 +35,7 @@ public class Journal {
         else return false;
     }
 
-    public ArrayList<Student> addNotPresentedStudentsToList(ArrayList<Student> checkedStudents){
+    public ArrayList<AbstractStudent> addNotPresentedStudentsToList(ArrayList<AbstractStudent> checkedStudents){
         this.checkedStudents = checkedStudents;
         for(int i = checkedStudents.size(); i < allStudent.size();i++){
             checkedStudents.add(new Student());
@@ -44,7 +44,7 @@ public class Journal {
         return checkedStudents;
     }
 
-    public void setCheckedStudents(ArrayList<Student> listOfStudent){
+    public void setCheckedStudents(ArrayList<AbstractStudent> listOfStudent){
         this.checkedStudents = listOfStudent;
     }
 

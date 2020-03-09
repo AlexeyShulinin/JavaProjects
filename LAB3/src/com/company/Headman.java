@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Headman extends  Student {
     private Student headman = new Student();
     public boolean resultOfCMP = true;
-    ArrayList<Student> checkedStudent = new ArrayList<Student>();
+    ArrayList<AbstractStudent> checkedStudent = new ArrayList<AbstractStudent>();
 
     public Headman(){
         headman.setName("Староста");
@@ -21,7 +21,7 @@ public class Headman extends  Student {
         return headman;
     }
 
-    public void addStudentsToJournal(ArrayList<Student> students, Journal journal){
+    public void addStudentsToJournal(ArrayList<AbstractStudent> students, Journal journal){
         journal.checkStudent(students);
     }
 

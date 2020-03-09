@@ -6,13 +6,26 @@ public class Student extends AbstractStudent {
     private String marks = new String();
 
     public Student(){;}
-
     public Student(String newName,String newSurname,String mark){
         super(newName,newSurname);
         this.marks = mark;
     }
 
+    public String getName(){
+        return this.name;
+    }
 
+    public String getSurname(){
+        return  this.surname;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public void setSurname(String surname){
+        this.surname = surname;
+    }
 
     public String getMarks(){
         return this.marks;
@@ -22,11 +35,6 @@ public class Student extends AbstractStudent {
         this.marks += "|" + mark;
     }
 
-
-    public void setStudent(Student student) {
-        this.setName(student.getName());
-        this.setSurname(student.getSurname());
-    }
 
     public String retThanks(){ return "Thank u";}
 }

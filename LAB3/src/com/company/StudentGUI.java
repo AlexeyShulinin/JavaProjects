@@ -14,7 +14,7 @@ public class StudentGUI extends JFrame {
     private JLabel labelIndicator = new JLabel("Вы пока не сходили на лекцию");
     private University university;
 
-    public static void addLectures(ArrayList<Lecture> lecture,JComboBox<String> comboBox){
+    public static void addLectures(ArrayList<AbstractExercise> lecture,JComboBox<String> comboBox){
 
             for (int i = 0; i < lecture.size(); i++) {
                 comboBox.addItem(lecture.get(i).getTopic() + " " + lecture.get(i).getDate());

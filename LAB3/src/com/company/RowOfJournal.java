@@ -8,7 +8,7 @@ public class RowOfJournal {
     private ArrayList<String> presence = new ArrayList<String>();
     private int amount = 0;
 
-    public void addPresent(ArrayList<Student> namesOfStudents){
+    public void addPresent(ArrayList<AbstractStudent> namesOfStudents){
         for(int i = 0; i < namesOfStudents.size();i++)
             this.presence.add(namesOfStudents.get(i).getName() + "+");
     }

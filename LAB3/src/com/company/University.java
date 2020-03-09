@@ -3,8 +3,8 @@ import java.util.ArrayList;
 
 public class University {
     private ArrayList<Teacher> teachers = new ArrayList<Teacher>();
-    private ArrayList<Student> students = new ArrayList<Student>();
-    private ArrayList<Lecture> exercises = new ArrayList<Lecture>();
+    private ArrayList<AbstractStudent> students = new ArrayList<AbstractStudent>();
+    private ArrayList<AbstractExercise> exercises = new ArrayList<AbstractExercise>();
     private Headman headman = new Headman();
     private Journal journal = new Journal(students);
 
@@ -38,11 +38,11 @@ public class University {
         return students.size();
     }
 
-    public Student getStudent(int pos){
+    public AbstractStudent getStudent(int pos){
         return students.get(pos);
     }
 
-    public ArrayList<Lecture> getLecture(){
+    public ArrayList<AbstractExercise> getLecture(){
         return this.exercises;
     }
 
@@ -56,7 +56,7 @@ public class University {
 
     public ArrayList<Teacher> getTeachers(){return this.teachers;}
 
-    public ArrayList<Student> getStudents() {
+    public ArrayList<AbstractStudent> getStudents() {
         return this.students;
     }
 

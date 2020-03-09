@@ -13,7 +13,7 @@ public class HeadmanGUI extends StudentGUI {
     private JComboBox<String> comboBox = new JComboBox<String>();
     private University university;
 
-    public static void addStudents(ArrayList<Student> students, JComboBox<String> comboBox){
+    public static void addStudents(ArrayList<AbstractStudent> students, JComboBox<String> comboBox){
         comboBox.removeAllItems();
         for (int i = 0; i < students.size(); i++) {
             comboBox.addItem(students.get(i).getSurname());
@@ -46,7 +46,7 @@ public class HeadmanGUI extends StudentGUI {
     class ButtonCheckStudents implements ActionListener {
         public void actionPerformed (ActionEvent e){
             JComboBox<String> tmpComboBox = getCombobox();
-            ArrayList<Student> tmpPresentedStudents;
+            ArrayList<AbstractStudent> tmpPresentedStudents;
             tmpPresentedStudents = university.getLecture().get(tmpComboBox.getSelectedIndex()).getPresentStudents();
             addStudents(tmpPresentedStudents,comboBox);
             for(int i = 0; i < tmpPresentedStudents.size();i++)
@@ -62,7 +62,7 @@ public class HeadmanGUI extends StudentGUI {
 
     class ButtonAddNotPresentedStudents implements ActionListener {
         public void actionPerformed (ActionEvent e){
-            ArrayList<Student> listOfStudents = university.getJournal().addNotPresentedStudentsToList(university.getJournal().getListOfStudents());
+            ArrayList<AbstractStudent> listOfStudents = university.getJournal().addNotPresentedStudentsToList(university.getJournal().getListOfStudents());
             comboBox.removeAllItems();
             addStudents(listOfStudents,comboBox);
         }

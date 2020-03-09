@@ -1,8 +1,8 @@
 package com.company;
 
 abstract class AbstractStudent {
-    private String name;
-    private String surname;
+    public String name;
+    public String surname;
 
     public AbstractStudent(){;}
     public AbstractStudent(String name,String surname){
@@ -10,20 +10,16 @@ abstract class AbstractStudent {
         this.surname = surname;
     }
 
-    public String getName(){
-        return this.name;
-    }
+    public abstract String getName();
 
-    public String getSurname(){
-        return this.surname;
-    }
+    public abstract String getSurname();
 
-    public void setName(String name){
-        this.name = name;
-    }
+    public abstract void setName(String name);
 
-    public void setSurname(String surname){
-        this.surname = surname;
-    }
+    public abstract void setSurname(String surname);
 
+    public abstract String retThanks();
+
+    public abstract void setMarks(String mark);
+    public abstract String getMarks();
 }

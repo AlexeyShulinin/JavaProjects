@@ -14,7 +14,7 @@ public class TeacherGUI extends JFrame {
     private JButton buttonCMPListOfStudents = new JButton("Сравнить списки");
     private JLabel labelIndicatorStudents = new JLabel("Сравнение студентов");
     private JLabel labelIndicator = new JLabel("Вы пока не провели лекцию");
-    private ArrayList<Lecture> listExercise = new ArrayList<Lecture>();
+    private ArrayList<AbstractExercise> listExercise = new ArrayList<AbstractExercise>();
     private Journal journal;
     private University university;
     private JComboBox<String> comboBoxLectures = new JComboBox<String>();
@@ -57,7 +57,7 @@ public class TeacherGUI extends JFrame {
 
     class ButtonShowStudentsEvent implements ActionListener {
         public void actionPerformed (ActionEvent e){
-            ArrayList<Student> listOfStudent = listExercise.get(comboBoxLectures.getSelectedIndex()).getPresentStudents();
+            ArrayList<AbstractStudent> listOfStudent = listExercise.get(comboBoxLectures.getSelectedIndex()).getPresentStudents();
             HeadmanGUI.addStudents(listOfStudent,comboBoxStudents);
             journal.setCheckedStudents(listOfStudent);
         }
