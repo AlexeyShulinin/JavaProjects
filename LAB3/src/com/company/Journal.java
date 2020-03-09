@@ -3,11 +3,12 @@ package com.company;
 import java.util.ArrayList;
 
 public class Journal {
-    private RowOfJournal row = new RowOfJournal();
+    private RowOfJournal row;
     private ArrayList<AbstractStudent> checkedStudents;
     private ArrayList<AbstractStudent > allStudent;
 
     public Journal(ArrayList<AbstractStudent> students){
+        row = new RowOfJournal();
         this.allStudent = students;
     }
 

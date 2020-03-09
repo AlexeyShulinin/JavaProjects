@@ -3,11 +3,14 @@ import java.util.ArrayList;
 
 
 public class Student extends AbstractStudent {
-    private String marks = new String();
+    private String marks;
 
-    public Student(){;}
+    public Student(){
+        marks = new String();
+    }
     public Student(String newName,String newSurname,String mark){
         super(newName,newSurname);
+        marks = new String();
         this.marks = mark;
     }
 

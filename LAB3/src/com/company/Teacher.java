@@ -3,12 +3,16 @@ package com.company;
 import java.util.ArrayList;
 
 public class Teacher {
-    private String name = new String();
-    private String surname = new String();
+    private String name;
+    private String surname;
 
-    ArrayList<AbstractStudent> checkedStudent = new ArrayList<AbstractStudent>();
+    ArrayList<AbstractStudent> checkedStudent;
 
     public Teacher(String name,String surname){
+        name = new String();
+        surname = new String();
+        checkedStudent = new ArrayList<AbstractStudent>();
+
         this.name = name;
         this.surname = surname;
     }

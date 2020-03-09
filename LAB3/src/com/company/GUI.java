@@ -4,22 +4,27 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class GUI extends JFrame{
-    private JButton buttonUniversity = new JButton("Меню Университета");
-    private JButton buttonStudent = new JButton("Меню студента");
-    private JButton buttonTeacher = new JButton("Меню преподователя");
-    private JButton buttonHeadman = new JButton("Меню старосты");
-    private University university = new University();
-
-
-
+public class GUI{
+    private JButton buttonUniversity;
+    private JButton buttonStudent;
+    private JButton buttonTeacher;
+    private JButton buttonHeadman;
+    private University university;
 
     public GUI () {
-        super("Second lab");//в класс JFrame передаём название нашего окна
-        this.setBounds(650, 250, 425, 250);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        university = new University();
+        buttonHeadman = new JButton("Меню старосты");
+        buttonTeacher = new JButton("Меню преподователя");
+        buttonStudent = new JButton("Меню студента");
+        buttonUniversity = new JButton("Меню Университета");
+    }
 
-        Container container = this.getContentPane();//содержит все поля
+    JFrame buildGUIFrame(){
+        JFrame frame = new JFrame("Third lab");
+        frame.setBounds(650, 250, 425, 250);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        Container container = frame.getContentPane();//содержит все поля
         container.setLayout(new GridLayout(4,0,5,5));
         container.add(buttonUniversity);
         container.add(buttonTeacher);
@@ -30,6 +35,8 @@ public class GUI extends JFrame{
         buttonTeacher.addActionListener(new ButtonTeacherEvent());
         buttonUniversity.addActionListener(new ButtonUniversityEvent());
         buttonHeadman.addActionListener(new ButtonHeadmanEvent());
+
+        return frame;
     }
 
     class ButtonStudentEvent implements ActionListener{
@@ -42,7 +49,8 @@ public class GUI extends JFrame{
     class ButtonTeacherEvent implements ActionListener{
         public void actionPerformed (ActionEvent e){
             TeacherGUI teacherGUI = new TeacherGUI(university);
-            teacherGUI.setVisible(true);
+            JFrame jFrame = teacherGUI.buildTeacherGUIFrame();
+            jFrame.setVisible(true);
         }
     }
 

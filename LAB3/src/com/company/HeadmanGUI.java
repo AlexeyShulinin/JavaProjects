@@ -7,10 +7,10 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class HeadmanGUI extends StudentGUI {
-    private JButton buttonCheckStudents = new JButton("Проверка студентов");
-    private JButton buttonCheckMe = new JButton("Отметить себя");
-    private JButton buttonCheckNotPresentedStudents = new JButton("Отметить отсутсвие");
-    private JComboBox<String> comboBox = new JComboBox<String>();
+    private JButton buttonCheckStudents;
+    private JButton buttonCheckMe;
+    private JButton buttonCheckNotPresentedStudents;
+    private JComboBox<String> comboBox;
     private University university;
 
     public static void addStudents(ArrayList<AbstractStudent> students, JComboBox<String> comboBox){
@@ -25,13 +25,19 @@ public class HeadmanGUI extends StudentGUI {
     }
 
     public HeadmanGUI(University university){
-        super(university);//в класс JFrame передаём название нашего окна
-        this.setBounds(650, 250, 450, 125);
+        super(university);
+
+        buttonCheckStudents = new JButton("Проверка студентов");
+        buttonCheckMe = new JButton("Отметить себя");
+        buttonCheckNotPresentedStudents = new JButton("Отметить отсутсвие");
+        comboBox = new JComboBox<String>();
+
+        this.setBounds(650, 250, 450, 150);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
         this.university = university;
 
-        Container containerStudent = this.getContentPane();//содержит все поля
+        Container containerStudent = this.getContentPane();
         containerStudent.setLayout(new GridLayout(4,0,5,5));
         containerStudent.add(buttonCheckStudents);
         containerStudent.add(buttonCheckMe);

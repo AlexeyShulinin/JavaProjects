@@ -7,32 +7,45 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class TeacherGUI extends JFrame {
-    private JButton buttonTellLecture = new JButton("Провести лекцию");
-    private JButton buttonCheckStudentsFromHeadman = new JButton("Отметить старосту");
-    private JButton buttonCheckStudent = new JButton("Проверить студетов");
-    private JButton buttonCMPListOfStudents = new JButton("Сравнить списки");
-    private JLabel labelIndicatorStudents = new JLabel("Сравнение студентов");
-    private JLabel labelIndicator = new JLabel("Вы пока не провели лекцию");
-    private ArrayList<AbstractExercise> listExercise = new ArrayList<AbstractExercise>();
+public class TeacherGUI{
+    private JButton buttonTellLecture;
+    private JButton buttonCheckStudentsFromHeadman;
+    private JButton buttonCheckStudent;
+    private JButton buttonCMPListOfStudents;
+    private JLabel labelIndicatorStudents;
+    private JLabel labelIndicator;
+    private ArrayList<AbstractExercise> listExercise;
     private Journal journal;
     private University university;
-    private JComboBox<String> comboBoxLectures = new JComboBox<String>();
-    private JComboBox<String> comboBoxStudents = new JComboBox<String>();
+    private JComboBox<String> comboBoxLectures;
+    private JComboBox<String> comboBoxStudents;
 
 
     public TeacherGUI(University university){
-        super("Teacher");//в класс JFrame передаём название нашего окна
-        this.setBounds(650, 250, 475, 175);
-        this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        buttonTellLecture = new JButton("Провести лекцию");
+        buttonCheckStudentsFromHeadman = new JButton("Отметить старосту");
+        buttonCheckStudent = new JButton("Проверить студетов");
+        buttonCMPListOfStudents = new JButton("Сравнить списки");
+        labelIndicatorStudents = new JLabel("Сравнение студентов");
+        labelIndicator = new JLabel("Вы пока не провели лекцию");
+        listExercise = new ArrayList<AbstractExercise>();
+        comboBoxLectures = new JComboBox<String>();
+        comboBoxStudents = new JComboBox<String>();
+
         this.university = university;
         this.journal = university.getJournal();
         this.listExercise = university.getLecture();
 
         StudentGUI.addLectures(this.listExercise,this.comboBoxLectures);
+    }
 
+    JFrame buildTeacherGUIFrame(){
+        JFrame frame = new JFrame("Teacher");
 
-        Container containerTeacher = this.getContentPane();//содержит все поля
+        frame.setBounds(650, 250, 475, 175);
+        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+
+        Container containerTeacher = frame.getContentPane();//содержит все поля
         containerTeacher.setLayout(new GridLayout(4,0,5,5));
         containerTeacher.add(comboBoxLectures);
         containerTeacher.add(labelIndicator);
@@ -47,6 +60,8 @@ public class TeacherGUI extends JFrame {
         buttonCheckStudent.addActionListener(new ButtonShowStudentsEvent());
         buttonCheckStudentsFromHeadman.addActionListener(new ButtonShowHeadmanEvent());
         buttonCMPListOfStudents.addActionListener(new ButtonCMPStudents());
+
+        return frame;
     }
 
     class ButtonShowLecturesEvent implements ActionListener {

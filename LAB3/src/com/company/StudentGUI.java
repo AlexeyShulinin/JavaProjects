@@ -9,9 +9,9 @@ import java.util.ArrayList;
 
 public class StudentGUI extends JFrame {
 
-    private JButton buttonUniversity = new JButton("Посетить лекцию");
-    private JComboBox<String> comboBox = new JComboBox<String>();
-    private JLabel labelIndicator = new JLabel("Вы пока не сходили на лекцию");
+    private JButton buttonUniversity;
+    private JComboBox<String> comboBox;
+    private JLabel labelIndicator;
     private University university;
 
     public static void addLectures(ArrayList<AbstractExercise> lecture,JComboBox<String> comboBox){
@@ -28,14 +28,19 @@ public class StudentGUI extends JFrame {
 
     public StudentGUI(){}
     public StudentGUI(University university){
-        super("Student");//в класс JFrame передаём название нашего окна
+        super("Student");
+        buttonUniversity = new JButton("Посетить лекцию");
+        comboBox = new JComboBox<String>();
+        labelIndicator = new JLabel("Вы пока не сходили на лекцию");
+
+
         this.setBounds(650, 250, 450, 125);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         this.university = university;
 
 
 
-        Container containerStudent = this.getContentPane();//содержит все поля
+        Container containerStudent = this.getContentPane();
         containerStudent.setLayout(new GridLayout(2,0,5,5));
         addLectures(university.getLecture(),comboBox);
         containerStudent.add(comboBox);
