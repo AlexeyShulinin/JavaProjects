@@ -5,14 +5,14 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class GUI extends JFrame{
-    private JButton button1 = new JButton("Копировать 1 в 2");
-    private JButton button2 = new JButton("Копировать 2 в 3");
-    private JTextField input1 = new JTextField("",5);
-    private JLabel label1 = new JLabel("                 1");
-    private JTextField input2 = new JTextField("",5);
-    private JLabel label2 = new JLabel("                 2");
-    private JTextField input3 = new JTextField("",5);
-    private JLabel label3 = new JLabel("                 3");
+    private JButton buttonCopyFromOneToSecond = new JButton("Копировать 1 в 2");
+    private JButton buttonCopeFromSecondToThird = new JButton("Копировать 2 в 3");
+    private JTextField inputFirstString = new JTextField("",5);
+    private JLabel labelFirstString = new JLabel("                 1");
+    private JTextField inputSecondString = new JTextField("",5);
+    private JLabel labelSecondString = new JLabel("                 2");
+    private JTextField inputThirdString = new JTextField("",5);
+    private JLabel labelThirdString = new JLabel("                 3");
 
 
     public GUI () {
@@ -21,30 +21,30 @@ public class GUI extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Container container = this.getContentPane();//содержит все поля
-        container.setLayout(new GridLayout(3,3));
-        container.add(label1);
-        container.add(label2);
-        container.add(label3);
-        container.add(input1);
-        container.add(input2);
-        container.add(input3);
-        container.add(button1);
-        container.add(button2);
+        container.setLayout(new GridLayout(3,3,3,3));
+        container.add(labelFirstString);
+        container.add(labelSecondString);
+        container.add(labelThirdString);
+        container.add(inputFirstString);
+        container.add(inputSecondString);
+        container.add(inputThirdString);
+        container.add(buttonCopyFromOneToSecond);
+        container.add(buttonCopeFromSecondToThird);
 
-        button1.addActionListener(new ButtonEvent1());
-        button2.addActionListener(new ButtonEvent2());
+        buttonCopyFromOneToSecond.addActionListener(new ButtonCopyFromOneToSecondEvent());
+        buttonCopeFromSecondToThird.addActionListener(new ButtonCopyFromSEcondToThirdEvent());
     }
 
-    class ButtonEvent1 implements ActionListener{
+    class ButtonCopyFromOneToSecondEvent implements ActionListener{
         public void actionPerformed (ActionEvent e){
-            String mess1 = input1.getText();
-            input2.setText(mess1);
+            String mess1 = inputFirstString.getText();
+            inputSecondString.setText(mess1);
         }
     }
-    class ButtonEvent2 implements ActionListener{
+    class ButtonCopyFromSEcondToThirdEvent implements ActionListener{
         public void actionPerformed (ActionEvent e){
-            String mess1 = input2.getText();
-            input3.setText(mess1);
+            String mess1 = inputSecondString.getText();
+            inputThirdString.setText(mess1);
         }
     }
 
