@@ -11,7 +11,6 @@ public class TeacherGUI extends JFrame {
     private JButton buttonTellLecture = new JButton("Провести лекцию");
     private JButton buttonCheckStudentsFromHeadman = new JButton("Отметить старосту");
     private JButton buttonCheckStudent = new JButton("Проверить студетов");
-    private JButton buttonGetListOfStudents = new JButton("Получить список студентов");
     private JButton buttonCMPListOfStudents = new JButton("Сравнить списки");
     private JLabel labelIndicatorStudents = new JLabel("Сравнение студентов");
     private JLabel labelIndicator = new JLabel("Вы пока не провели лекцию");
@@ -47,7 +46,6 @@ public class TeacherGUI extends JFrame {
         buttonTellLecture.addActionListener(new ButtonShowLecturesEvent());
         buttonCheckStudent.addActionListener(new ButtonShowStudentsEvent());
         buttonCheckStudentsFromHeadman.addActionListener(new ButtonShowHeadmanEvent());
-        buttonGetListOfStudents.addActionListener(new ButtonGetListOfStudents());
         buttonCMPListOfStudents.addActionListener(new ButtonCMPStudents());
     }
 
@@ -68,12 +66,6 @@ public class TeacherGUI extends JFrame {
     class ButtonShowHeadmanEvent implements ActionListener {
         public void actionPerformed (ActionEvent e){
             HeadmanGUI.addMe(university.getHeadman().getHeadman(),comboBoxStudents);
-        }
-    }
-
-    class ButtonGetListOfStudents implements ActionListener {
-        public void actionPerformed (ActionEvent e){
-
         }
     }
 
