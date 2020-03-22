@@ -12,11 +12,16 @@ public class Car {
         driveACar();
     }
     public void driveACar(){
+        this.thread.start();
         this.speed += (int)(Math.random()*100);
     }
     public int getSpeed(){return this.speed;}
 
     public String getInfoAboutCar(){
         return this.name + " : " + this.speed;
+    }
+
+    public Thread retThread(){
+        return this.thread;
     }
 }

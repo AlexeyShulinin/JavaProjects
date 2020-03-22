@@ -26,7 +26,25 @@ public class Road {
 
     public String getInfo(){
         String info = carArrayDeque.getFirst().getInfoAboutCar();
-        carArrayDeque.removeFirst();
+        Thread t = carArrayDeque.getFirst().retThread();
+        if (carArrayDeque.getFirst().getSpeed() > 60){
+            try{
+                t.join();
+            }
+            catch (InterruptedException e){
+                System.out.printf("%s has been interrupted", t.getName());
+            }
+            carArrayDeque.removeFirst();
+        }
+        else {
+            try {
+                t.sleep(1000);
+                t.join();
+            } catch (InterruptedException e) {
+                System.out.printf("%s has been interrupted", t.getName());
+            }
+            carArrayDeque.removeFirst();
+        }
         return info;
     }
 }
