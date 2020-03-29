@@ -1,50 +1,40 @@
 package com.company;
 
+import java.lang.reflect.Array;
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 
 public class Road {
-    private int lines;
-    private ArrayDeque<Car> carArrayDeque;
+    private int lines = 5;
+    private int countOfCheating = 0;
+    private ArrayList<Car> cars;
 
     public Road(){
-        carArrayDeque = new ArrayDeque<Car>(51);
-        this.lines = 5;
+        cars = new ArrayList<Car>(50);
     }
 
-    public void addNewCar(Car newCar){
-        this.carArrayDeque.add(newCar);
+    public void addNewCar(Car newCar) throws InterruptedException {
+        this.cars.add(newCar);
     }
 
-    public void tellAboutCheating(){
-        if(this.carArrayDeque.getFirst().getSpeed() > 60)
-            System.out.println("Имеются нарушения");
+    public void tellAboutCheating() throws InterruptedException {
+       for(int i = 0 ; i < 50 ; i++){
+           this.cars.get(i).changeStatusToStop();
+            if(this.cars.get(i).getSpeed() > 60){
+                this.countOfCheating++;
+            }
+        }
+        System.out.println("Кол-во нарушений: "+ this.countOfCheating);
+        cars.clear();
     }
 
     public int retAmount(){
-        return this.carArrayDeque.size();
+        return this.cars.size();
     }
 
-    public String getInfo(){
-        String info = carArrayDeque.getFirst().getInfoAboutCar();
-        Thread t = carArrayDeque.getFirst().retThread();
-        if (carArrayDeque.getFirst().getSpeed() > 60){
-            try{
-                t.join();
-            }
-            catch (InterruptedException e){
-                System.out.printf("%s has been interrupted", t.getName());
-            }
-            carArrayDeque.removeFirst();
-        }
-        else {
-            try {
-                t.sleep(1000);
-                t.join();
-            } catch (InterruptedException e) {
-                System.out.printf("%s has been interrupted", t.getName());
-            }
-            carArrayDeque.removeFirst();
-        }
-        return info;
+    public void initCountOfCheating(){
+        this.countOfCheating = 0;
     }
+
+
 }
