@@ -24,7 +24,8 @@ public class Controller {
             if(!carThreads.get(i).isAlive()){
                 road.tellInfoAboutCheatingCurrentCar(road.getCars().get(i));
                 road.getCars().remove(i);
-                road.addCarToRoad(new Car());
+                this.carThreads.remove(i);
+                addNewCarToLine(road);
             }
             i++;
         }
