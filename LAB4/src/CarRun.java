@@ -15,6 +15,6 @@ public class CarRun implements Runnable{
                 e.printStackTrace();
             }
         }
-        else car.isCheated = true;
+
     }
 }

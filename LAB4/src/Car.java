@@ -1,12 +1,14 @@
 public class Car {
     private int speed;
-    boolean isCheated = false;
 
     Car(){
-        this.speed = (int) (Math.random() * 100);
+        drive();
     }
 
     public int getSpeed(){
         return this.speed;
+    }
+    public void drive(){
+        this.speed = (int) (Math.random() * 100);
     }
 }
