@@ -3,7 +3,7 @@ public class Car{
     private String name;
     Thread thread;
 
-    public Car(){
+    public Car() throws InterruptedException {
         this.name = Thread.currentThread().getName();
         this.speed = (int) (Math.random() * 100);
         thread = new Thread(new Runnable() {
@@ -13,7 +13,7 @@ public class Car{
             public void run() {
                 tmpSpeed = getSpeed();
 
-                //System.out.println(Thread.currentThread().getName() + "(" + Thread.currentThread().getId() +")" + ":" + this.tmpSpeed);
+                System.out.println(Thread.currentThread().getName() + "(" + Thread.currentThread().getId() +")" + ":" + this.tmpSpeed);
                 if (tmpSpeed <= 60) {
                     try {
                         Thread.sleep(1000);
@@ -21,11 +21,12 @@ public class Car{
                         e.printStackTrace();
                     }
                 }
-                boolean interrupted;
-                if (Thread.interrupted()) interrupted = true;
-                else interrupted = false;
+                Thread.currentThread().interrupt();
+
             }
         });
+        thread.start();
+       // thread.join();
     }
 
     public void drive(){
@@ -34,10 +35,6 @@ public class Car{
 
     public int getSpeed(){
         return this.speed;
-    }
-
-    public String getName(){
-        return this.name;
     }
 
     public Thread getThread(){

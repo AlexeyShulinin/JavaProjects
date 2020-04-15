@@ -8,9 +8,11 @@ public class main {
         Road road = new Road();
         while (true){
             controller.addNewCarToLine(road);
+            controller.cmpThreadsAndQueue(road);
             if(road.retAmount() == 50) {
                 road.tellAboutCheating();
                 road.initCountOfCheating();
+                controller.clearAllThreads();
             }
         }
     }

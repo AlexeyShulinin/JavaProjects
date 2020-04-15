@@ -7,20 +7,20 @@ public class Road {
     private ArrayList<Car> cars;
 
     Road(){
-        cars = new ArrayList<Car>(1);
+        cars = new ArrayList<Car>(51);
     }
     public ArrayList<Car> getCars(){
         return this.cars;
     }
 
     public void tellAboutCheating() throws InterruptedException {
-        for(int i = 0 ; i < 50 ; i++){
-            if(this.cars.get(i).getSpeed() > 60){
-                this.countOfCheating++;
-            }
-        }
+//        for(int i = 0 ; i < 50 ; i++){
+//            if(this.cars.get(i).getSpeed() > 60){
+//                this.countOfCheating++;
+//            }
+//        }
         System.out.println("Кол-во нарушений: "+ this.countOfCheating);
-        cars.clear();
+        cars.removeAll(cars);
     }
 
     public int retAmount(){
@@ -34,8 +34,8 @@ public class Road {
 
     public void addCarToRoad(Car car){
         cars.add(car);
-        car.drive();
-        this.countOfCars++;
+       // car.drive();
+        this.countOfCars+=1;
     }
 
     public void tellInfoAboutCheatingCurrentCar(Car car) {
