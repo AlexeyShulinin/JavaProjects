@@ -1,5 +1,5 @@
 public class CarRun implements Runnable{
-    Car car;
+    private Car car;
 
     CarRun(Car car){
         this.car = car;
