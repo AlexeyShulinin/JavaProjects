@@ -11,8 +11,9 @@ public class CarRun implements Runnable{
             try {
                 Thread.sleep(1000);
                 Thread.currentThread().interrupt();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            } catch (InterruptedException ex) {
+                System.err.println("An InterruptedException was caught: " + ex.getMessage());
+                Thread.currentThread().interrupt();
             }
         }
 

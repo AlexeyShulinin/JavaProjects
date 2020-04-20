@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 public class Road {
     private int lines = 5;
-    private int countOfCheating = 0;
-    private int countOfCars = 0;            //теперь можно узнать о состоянии машины(нарушила или нет),даже она уже съехала с дороги
+    private int countOfCheating;
+    private int countOfCars;
     private int MaxSpeed;
     private ArrayList<Car> cars;
     private ArrayList<Thread> carsThreads;
@@ -11,7 +11,7 @@ public class Road {
     Road(){
         cars = new ArrayList<Car>(51);
         carsThreads = new ArrayList<Thread>(51);
-        this.MaxSpeed = 0;
+        initCountOfCheating();
     }
 
     public void addCar(Car newCar){
@@ -43,5 +43,14 @@ public class Road {
         System.out.println("Макс скорость: "+ this.MaxSpeed);
         carsThreads.removeAll(carsThreads);
         cars.removeAll(cars);
+    }
+
+    public void checkCars(){
+        for(int i = 0;i<this.carsThreads.size();i++){
+            if(!this.carsThreads.get(i).isAlive()){
+                this.cars.remove(i);
+                this.carsThreads.remove(i);
+            }
+        }
     }
 }
