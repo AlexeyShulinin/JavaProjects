@@ -9,19 +9,23 @@ import scala.annotation.tailrec
 object ListSort {
 
   def sortListTailRec(lst:List[Double]):List[Double] = {
-      def insert(x: Double, sorted:List[Double]): List[Double] = sorted match {
-        case Nil => x :: Nil //пустой лист
-        case h :: t => if (x < h) x :: sorted else h :: insert(x, t) //сравниваем позициюю с головой x
-      }
-
-      @tailrec
-      def helper(sorted:List[Double], unsorted:List[Double]):List[Double] =
-        unsorted match {
-          case Nil => sorted
-          case h::t => helper(insert(h, sorted), t)
+    def insert(x: Double, sorted:List[Double]): List[Double] = sorted match {
+      case Nil => x :: Nil //пустой лист
+      case head :: tail =>{
+        def cmpValue(x:Double): List[Double] = sorted match {
+          case head :: tail if(x < head) => x :: sorted
+          case head :: tail if(x > head) => head :: insert(x, tail)
         }
+        cmpValue(x)
+      }
+    }
 
-      helper(Nil, lst)
+    def getSortedList(sorted:List[Double], unsorted:List[Double]):List[Double] =
+      unsorted match {
+        case Nil => sorted
+        case head::tail => getSortedList(insert(head, sorted), tail)
+      }
+    getSortedList(Nil, lst)
   }
 
 
