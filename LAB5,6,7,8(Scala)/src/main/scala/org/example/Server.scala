@@ -42,9 +42,9 @@ object Server extends App {
         users += tmp
         println("User added: ", login + " " + pass)
       }
-      case ChangePassword(login,newPassword) =>{
-        changePass(users,login,newPassword,0)
-        println("Password changed: ", login + " " + newPassword)
+      case ChangePassword(login,newPassword) => login match{
+        case login if(changePass(users,login,newPassword,0) == true) => println("Password changed: ", login + " " + newPassword)
+        case login if(changePass(users,login,newPassword,0) == false) => println("ERROR: change is impossible", login + " " + newPassword)
       }
       case GetUsers => printAllUsers(0)
       case Authorization(login,pass) => println(authorization(login,pass,0))
